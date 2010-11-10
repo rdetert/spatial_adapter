@@ -5,7 +5,6 @@
 
 begin
   adapter = ActiveRecord::Base.configurations[RAILS_ENV]['adapter']
-  adapter = "mysql" if adapter == "jdbcmysql"
   require "spatial_adapter/#{adapter}"
 rescue LoadError
   raise SpatialAdapter::NotCompatibleError.new("spatial_adapter does not currently support the #{adapter} database.")
