@@ -32,6 +32,7 @@ ActiveRecord::ConnectionAdapters::MysqlAdapter.class_eval do
       klass = field[1] =~ /geometry|point|linestring|polygon|multipoint|multilinestring|multipolygon|geometrycollection/i ? ActiveRecord::ConnectionAdapters::SpatialMysqlColumn : ActiveRecord::ConnectionAdapters::MysqlColumn
       columns << klass.new(field[0], field[4], field[1], field[2] == "YES")
     end
+    debugger
     # result.free
     result = nil
     columns
